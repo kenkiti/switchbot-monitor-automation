@@ -86,6 +86,9 @@ Example config:
 Unregister-ScheduledTask : アクセスが拒否されました。
 ```
 
+タスク登録スクリプトは、`C:\SwitchBot\.venv\Scripts\pythonw.exe` が存在する場合、それを優先して使用します。
+`.venv` が存在しない場合は、システムにインストール済みの `pythonw.exe` / `python.exe` を使用します。
+
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\Register_SwitchBot_Tasks.ps1
 powershell -ExecutionPolicy Bypass -File .\scripts\Register_SwitchBot_DailyRestart.ps1
@@ -103,6 +106,41 @@ Start-ScheduledTask -TaskName "SwitchBot_OFF"
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\Check_SwitchBot_Status.ps1
 ```
+
+## 動作確認
+
+タスク登録後、以下を実行して `SwitchBot_ON` と `SwitchBot_OFF` が `Running` になっていることを確認します。
+
+```powershell
+cd C:\SwitchBot
+powershell -ExecutionPolicy Bypass -File .\scripts\Check_SwitchBot_Status.ps1
+```
+
+期待する状態：
+
+```text
+TaskName       : SwitchBot_ON
+State          : Running
+
+TaskName       : SwitchBot_OFF
+State          : Running
+```
+
+Pythonプロセスにも、以下の2つが表示されていれば正常です。
+
+```text
+pythonw.exe ... C:\SwitchBot\src\SwitchBot_ON.py
+pythonw.exe ... C:\SwitchBot\src\SwitchBot_OFF.py
+```
+
+ログも確認できます。
+
+```powershell
+Get-Content .\logs\SwitchBot_ON.log -Tail 30
+Get-Content .\logs\SwitchBot_OFF.log -Tail 30
+```
+
+`SwitchBot_ON.log` に `BLE SCANNER STARTED` が出ていれば、BLE監視側が起動しています。
 
 停止:
 
