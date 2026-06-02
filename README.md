@@ -163,7 +163,6 @@ powershell -ExecutionPolicy Bypass -File .\scripts\Watch_SwitchBot_Logs.ps1
 ## 補足
 
 - 実機のSwitchBot MACアドレスは、`config\switchbot_config.json` にのみ記載してください。
-- `config\switchbot_config.json` はローカル専用ファイルです。Gitにコミットしないでください。
 - `.lnk` ショートカットファイルはPC環境ごとに異なるため、各PCで手動作成してください。
 - CSVログは長期運用で肥大化しやすいため、通常は `enable_csv_log: false` を推奨します。
 
