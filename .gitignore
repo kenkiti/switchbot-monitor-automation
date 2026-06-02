@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Runtime state
+state/*.json
+!state/.gitkeep
+
+# Logs
+logs/*.log
+logs/*.csv
+!logs/.gitkeep
+
+# Local config
+config/switchbot_config.json
+
+# Windows shortcuts / local files
+shortcuts/*.lnk
+*.lnk
+
+# Temporary files
+trash/
+*.tmp
+*.bak
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

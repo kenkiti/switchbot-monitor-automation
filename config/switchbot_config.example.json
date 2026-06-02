@@ -1,0 +1,7 @@
+{
+  "target_mac": "AA:BB:CC:DD:EE:FF",
+  "idle_minutes": 10,
+  "enable_csv_log": false,
+  "wake_shortcut": "shortcuts/antigravity.lnk",
+  "daily_restart_time": "05:00"
+}
