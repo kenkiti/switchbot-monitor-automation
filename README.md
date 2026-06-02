@@ -78,6 +78,14 @@ Example config:
 
 ## タスクスケジューラ登録
 
+タスクスケジューラへの登録・再登録は、管理者権限のPowerShellで実行してください。
+
+通常のPowerShellで実行すると、既存タスクの削除時に次のようなエラーが出る場合があります。
+
+```text
+Unregister-ScheduledTask : アクセスが拒否されました。
+```
+
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\Register_SwitchBot_Tasks.ps1
 powershell -ExecutionPolicy Bypass -File .\scripts\Register_SwitchBot_DailyRestart.ps1
